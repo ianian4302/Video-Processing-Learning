@@ -24,7 +24,10 @@ By analyzing differences in results based on adjustments to these parameters, yo
 
 
 
-https://github.com/ianian4302/Video-Processing-Learning/assets/88609092/509c5729-d4f2-4ac8-a180-5ffe5da175c4
+https://github.com/ianian4302/Video-Processing-Learning/assets/88609092/6280446c-625c-4cab-b4e5-a1dccd537b69
+
+
+
 
 
 
