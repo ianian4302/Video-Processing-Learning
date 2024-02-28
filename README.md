@@ -3,7 +3,9 @@ A progject of Video-Processing-Learning.
 
 Programing with Opencv and Python. 
 
-## Detail
+- [Video-Processing-Learning](#video-processing-learning)
+    - [0. Detail](#0-detail)
+##  0. Detail
 
 ### Adjusting Wavelengths in the Rotated Rainbow:
 
