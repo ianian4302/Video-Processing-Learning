@@ -20,17 +20,3 @@ The camera projection model describes how light entering the camera lens is tran
 
 By analyzing differences in results based on adjustments to these parameters, you can understand how they affect color accuracy, contrast, and overall image quality. This analysis is essential for photographers, videographers, and imaging professionals to produce desired visual outcomes and ensure consistency across different imaging devices.
 
-
-
-
-
-https://github.com/ianian4302/Video-Processing-Learning/assets/88609092/6280446c-625c-4cab-b4e5-a1dccd537b69
-
-
-
-
-
-
-
-
-
