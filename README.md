@@ -19,3 +19,7 @@ By adjusting the parameters of this model, such as the spectral sensitivity curv
 The camera projection model describes how light entering the camera lens is translated into an image. Adjusting parameters such as exposure settings (e.g., aperture, shutter speed, ISO), white balance, and color profile can significantly impact the resulting image.
 
 By analyzing differences in results based on adjustments to these parameters, you can understand how they affect color accuracy, contrast, and overall image quality. This analysis is essential for photographers, videographers, and imaging professionals to produce desired visual outcomes and ensure consistency across different imaging devices.
+
+
+https://github.com/ianian4302/Video-Processing-Learning/assets/88609092/a590ceae-21a2-4a9a-a09e-cb5b23ab4567
+
