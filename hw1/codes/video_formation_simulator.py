@@ -5,6 +5,7 @@ from color_converter import *
 from camera import *
 from display import *
 
+video_path = 'hw1/my_videos/'
 # Generate lights from a rotated rainbow
 scene = RotatedRainbow()
 hvs = HumanVisualSystem()
@@ -17,11 +18,11 @@ fov = 60 # vertical fov in degrees
 fps = 30 # frames_per_second
 image_width, image_height = 800, 600 # in pixels
 fourcc=cv2.VideoWriter_fourcc(*'mp4v')
-Vc = cv2.VideoWriter('camera.mp4', fourcc, fps, (image_width, image_height))
-Vy = cv2.VideoWriter('luminance.mp4', fourcc, fps, (image_width, image_height))
-Vuv = cv2.VideoWriter('chrominance.mp4', fourcc, fps, (image_width, image_height))
-Vd = cv2.VideoWriter('display.mp4', fourcc, fps, (image_width, image_height))
-Vd_ori = cv2.VideoWriter('display_without_correction.mp4', fourcc, fps, (image_width, image_height))
+Vc = cv2.VideoWriter(video_path + 'camera.mp4', fourcc, fps, (image_width, image_height))
+Vy = cv2.VideoWriter(video_path + 'luminance.mp4', fourcc, fps, (image_width, image_height))
+Vuv = cv2.VideoWriter(video_path + 'chrominance.mp4', fourcc, fps, (image_width, image_height))
+Vd = cv2.VideoWriter(video_path + 'display.mp4', fourcc, fps, (image_width, image_height))
+Vd_ori = cv2.VideoWriter(video_path + 'display_without_correction.mp4', fourcc, fps, (image_width, image_height))
 camera = Camera(fov, image_width, image_height)
 display = Display(image_width, image_height)
 Iy = np.zeros([image_height, image_width, 3], dtype=np.uint8) # Luminance image
@@ -73,6 +74,7 @@ while frame < 300:
         print('write image to video, frame:', frame)
         Ic = camera.output_image()
         Id = display.output_buffer()
+        
         Vc.write(Ic)
         Vy.write(Iy)
         Vuv.write(Iuv)  
