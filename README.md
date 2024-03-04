@@ -10,7 +10,7 @@ Programing with Opencv and Python.
         - [Adjusting Parameters of the Stockman and Sharpe Model](#adjusting-parameters-of-the-stockman-and-sharpe-model)
         - [Adjusting Parameters of the Camera Projection Model](#adjusting-parameters-of-the-camera-projection-model)
     - [HW2](#hw2)
-        - [FPS-(Frames Per Second)](#fps-(frames-per-second))
+        - [FPS-(Frames Per Second)](#fps-frames-per-second)
         - [Image Height](#image-height)
         - [Retrace Times](#retrace-times)
 #    Detail
