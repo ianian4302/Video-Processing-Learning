@@ -10,7 +10,9 @@ Programing with Opencv and Python.
         - [Adjusting Parameters of the Stockman and Sharpe Model](#adjusting-parameters-of-the-stockman-and-sharpe-model)
         - [Adjusting Parameters of the Camera Projection Model](#adjusting-parameters-of-the-camera-projection-model)
     - [HW2](#hw2)
-
+        - [FPS-(Frames Per Second)](fps-(frames-per-second))
+        - [Image Height](image-height)
+        - [Retrace Times](retrace-times)
 #    Detail
 #    HW1
 ##    Adjusting Wavelengths in the Rotated Rainbow
@@ -28,3 +30,14 @@ The camera projection model describes how light entering the camera lens is tran
 
 By analyzing differences in results based on adjustments to these parameters, you can understand how they affect color accuracy, contrast, and overall image quality. This analysis is essential for photographers, videographers, and imaging professionals to produce desired visual outcomes and ensure consistency across different imaging devices.
 #    HW2
+##    FPS (Frames Per Second)
+Higher FPS results in shorter time intervals between frames. This means that the time allocated for each frame (T_frame_ms) decreases, potentially affecting the timing of vertical retrace and completing a full raster scan.
+Higher FPS also means more frames to scan within a given time frame, which could increase the workload and affect the timing of horizontal retrace.
+
+##    Image Height
+Increasing image height increases the number of lines to be scanned in each frame. This affects the time required for vertical retrace, as well as the total time required to complete a full raster scan.
+It also affects the workload during horizontal retrace, as more lines need to be scanned.
+
+##    Retrace Times
+Adjusting retrace times directly impacts the timing of horizontal and vertical retraces. Shorter retrace times would mean less time spent on retrace and more time available for actual scanning.
+Longer retrace times might result in more noticeable flicker or lag in the display but could also provide more time for other processing tasks.
