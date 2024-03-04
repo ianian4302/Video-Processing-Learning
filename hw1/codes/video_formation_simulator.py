@@ -5,7 +5,7 @@ from color_converter import *
 from camera import *
 from display import *
 
-video_path = 'hw1/my_videos/'
+video_path = 'homeworks/hw1/my_videos/'
 # Generate lights from a rotated rainbow
 scene = RotatedRainbow()
 hvs = HumanVisualSystem()

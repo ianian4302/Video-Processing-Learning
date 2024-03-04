@@ -88,7 +88,10 @@ class Camera():
             y = u = v = 0 # Initialize y, u, v to zeros
 
             # TODO: Get receptor responses (already done it on hw1)
-
+            r = hvs.red_cone_response(light)
+            g = hvs.green_cone_response(light)
+            b = hvs.blue_cone_response(light)
+        
             # Capture lights in camera
             x = self.project_to_image_position(light.X)
             self.write_latent_image(x, r, g, b)
@@ -105,16 +108,19 @@ class Camera():
            # Determine the elapsed time after horizontally retracing on current line
            t_line = t1 - l * self.Tl
            if t_line <= self.Tl_r:
-               # TODO: Finish line scanning by implementing the following procedure to replace 'pass' command:
-               # 1. Determine scanning segment based on previous raster index, t_line and raster rate
-               # 2. Employ raster_scan_one_time to execute scanning for each individual raster
-               pass
+                # TODO: Finish line scanning by implementing the following procedure to replace 'pass' command:
+                # 1. Determine scanning segment based on previous raster index, t_line and raster rate
+                # 2. Employ raster_scan_one_time to execute scanning for each individual raster
+                self.raster_scan_one_time()
+                
            elif t_line <= self.Tl: # Re-tracingg
-               pass
+                pass
            else:
-               # TODO: Finish horizontal re-tracing to replace 'pass' command
-               # 1. Update scanned_lines and r_idx
-               pass
+                # TODO: Finish horizontal re-tracing to replace 'pass' command
+                # 1. Update scanned_lines and r_idx
+                self.scanned_lines += 1
+                self.r_idx = self.scanned_lines * self.w
+                self.elapsed_time_ms_scan = t1
 
            # Update elapsed time 
            self.elapsed_time_ms_scan = t1

@@ -5,6 +5,7 @@ from color_converter import *
 from camera import *
 from display import *
 
+video_path = 'homeworks/hw2/my_videos/'
 # Generate lights from a rotated rainbow
 scene = RotatedRainbow()
 color_converter = ColorConverter()
@@ -16,7 +17,7 @@ fov = 60 # vertical fov in degrees
 frames_per_second = 30 # 
 image_width, image_height = 200, 150 # in pixels
 fourcc=cv2.VideoWriter_fourcc(*'mp4v')
-Vd = cv2.VideoWriter('display.mp4', fourcc, frames_per_second, (image_width, image_height))
+Vd = cv2.VideoWriter(video_path +'display.mp4', fourcc, frames_per_second, (image_width, image_height))
 camera = Camera(fov, image_width, image_height, frames_per_second)
 display = Display(image_width, image_height)
 
@@ -63,7 +64,10 @@ while frame < 3:
                     r, g, b = I_dist[y, x, :]
                     display_color = [r, g, b]
                     # TODO: Record brightness after correction (already done it on hw1)
-
+                    vc = camera.get_output_voltage(x)
+                    vd = display.gamma_correct(vc, display.gd)
+                    bd = display.output_brightness(vd)
+        
                     rd, gd, bd = display_color[0], display_color[1], display_color[2]
                     display.write_buffer([x, y], rd, gd, bd)
 
