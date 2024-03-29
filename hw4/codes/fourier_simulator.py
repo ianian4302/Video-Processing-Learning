@@ -63,13 +63,13 @@ d_mm = 15 # The viewing distance
 F_viz = 0
 for phi_st in phi_st_seq:
     b, x, y, t = phi_st[0], phi_st[1], phi_st[2], phi_st[3]
-    x_mm = x * w_mm / w_pix-5
-    y_mm = y * h_mm / h_pix-5
+    x_mm = x * w_mm / w_pix
+    y_mm = y * h_mm / h_pix
 
     c, r = x, y #Initialize
     # TODO: update (c, r) for viewer image using Camera.project_to_image_position 
     # Notice: the viewer image center should align to the screen center.
-    c, r = viewer.project_to_image_position([x_mm, y_mm, d_mm])
+    c, r = viewer.project_to_image_position([x_mm-5, y_mm-5, d_mm])
     
     F_phi_st = int(t)
     if (F_phi_st > F_viz):
@@ -94,20 +94,20 @@ fx_seq = [c / w_pix for c in range(w_pix) if c % intv == 0]
 fr_xformer = FourierTransformer(ft_seq, fx_seq, fy_seq)
 
 # Online compute fourier transform
-#phi_fr_seq = fr_xformer.transform(phi_st_seq)
+# phi_fr_seq = fr_xformer.transform(phi_st_seq)
 
-'''
-# You can use the following code snippet to dump phi_fr_seq to file
-with open('response.fq', 'w') as file:
-    # Write each float number to the file
-    for phi_fr in phi_fr_seq:
-        for idx in range(len(phi_fr)):
-            file.write(f'{phi_fr[idx]} ')
-'''
+
+#You can use the following code snippet to dump phi_fr_seq to file
+# with open('response.fq', 'w') as file:
+#     # Write each float number to the file
+#     for phi_fr in phi_fr_seq:
+#         for idx in range(len(phi_fr)):
+#             file.write(f'{phi_fr[idx]} ')
+
 
 # Read cached frequency response file
 phi_fr_seq = []
-with open('response.fq', 'r') as file:
+with open('hw4/codes/response.fq', 'r') as file:
     content = file.read()
     vals = content.split()
     while len(vals) > 0:
@@ -146,11 +146,13 @@ for idx, phi_fr in enumerate(phi_fr_seq):
 
 # Uncomment the following code snippet for bonus experiments 
 # Remove response on certain frequency region
+'''
 x_clip = 5
 for idx, phi_fr in enumerate(phi_fr_seq):
     fx, fy, ft = phi_fr[2], phi_fr[3], phi_fr[4]
     if fx  > x_clip / w_pix:
         phi_fr_seq[idx][0] = phi_fr_seq[idx][1] = 0
+'''
 
 
 # Reconstruct spatial temporal signal via inverse fourier transform

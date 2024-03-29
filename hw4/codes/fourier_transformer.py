@@ -24,7 +24,7 @@ class FourierTransformer():
                 # TODO: Caculate the required angle:
                 # 1. Inner product of the spatial-temporal and frequency variables
                 # 2. Multiply constant term -2 pi 
-                angle = -2 * np.pi * (fx * phi_st[0] + fy * phi_st[1] + ft * phi_st[2])
+                angle = -2 * np.pi * (fx * x + fy * y + ft * t)
                 cos_term = np.cos(angle)
                 sin_term = np.sin(angle)
                 phi_fr_real += b * cos_term - 0 * sin_term
