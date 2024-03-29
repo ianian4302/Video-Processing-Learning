@@ -107,7 +107,7 @@ fr_xformer = FourierTransformer(ft_seq, fx_seq, fy_seq)
 
 # Read cached frequency response file
 phi_fr_seq = []
-with open('hw4/codes/response.fq', 'r') as file:
+with open('homeworks/hw4/codes/response.fq', 'r') as file:
     content = file.read()
     vals = content.split()
     while len(vals) > 0:
@@ -134,25 +134,25 @@ for mag, phi_fr in zip(fr_mag_seq, phi_fr_seq):
 Vfr.release()
 
 # Shift the frequency signal
-dx = 0.02
-dy = 0.02
-for idx, phi_fr in enumerate(phi_fr_seq):
-    fx, fy, ft = phi_fr[2], phi_fr[3], phi_fr[4]
-    fx += dx
-    fy += dy
-    phi_fr_seq[idx][2] = fx
-    phi_fr_seq[idx][3] = fy
+# dx = 0.02
+# dy = 0.02
+# for idx, phi_fr in enumerate(phi_fr_seq):
+#     fx, fy, ft = phi_fr[2], phi_fr[3], phi_fr[4]
+#     fx += dx
+#     fy += dy
+#     phi_fr_seq[idx][2] = fx
+#     phi_fr_seq[idx][3] = fy
         
 
 # Uncomment the following code snippet for bonus experiments 
 # Remove response on certain frequency region
-'''
-x_clip = 5
+
+x_clip = 20
 for idx, phi_fr in enumerate(phi_fr_seq):
     fx, fy, ft = phi_fr[2], phi_fr[3], phi_fr[4]
     if fx  > x_clip / w_pix:
         phi_fr_seq[idx][0] = phi_fr_seq[idx][1] = 0
-'''
+
 
 
 # Reconstruct spatial temporal signal via inverse fourier transform
