@@ -91,16 +91,15 @@ Z = D
 F = camera.get_focal_length()
 
 # a0, a1, a2, b0, b1, b2, c1, c2
-a0 = T[0] * F + r[2] * F * Z
+a0 = T[0] * F + r[2] * F * Z # 0
 a1 = r[0] * Z -1
 a2 = r[1] * Z /2
-b0 = T[1] * F + r[5] * F * Z
+b0 = T[1] * F + r[5] * F * Z # 0
 b1 = r[3] * Z /2
-b2 = r[4] * Z -1
-c1 = r[6] * Z
+b2 = r[4] * Z -1 + 0.001
+c1 = r[6] * Z               
 c2 = r[7] * Z
 
-print(Z)
 print(a0, a1, a2, b0, b1, b2, c1, c2)
 
 # Create projective mapper
