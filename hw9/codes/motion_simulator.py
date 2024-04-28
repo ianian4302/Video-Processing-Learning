@@ -89,14 +89,15 @@ c2 = 0
 # Z: object distance
 Z = D
 F = camera.get_focal_length()
+K = 0.5
 
 # a0, a1, a2, b0, b1, b2, c1, c2
 a0 = T[0] * F + r[2] * F * Z # 0
-a1 = r[0] * Z -1 + 0.001
+a1 = r[0] * Z * K
 a2 = r[1] * Z /2
 b0 = T[1] * F + r[5] * F * Z # 0
 b1 = r[3] * Z /2
-b2 = r[4] * Z -1 + 0.001
+b2 = r[4] * Z * K
 c1 = r[6] * Z               
 c2 = r[7] * Z
 
