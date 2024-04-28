@@ -89,6 +89,8 @@ c2 = 0
 # Z: object distance
 Z = D
 F = camera.get_focal_length()
+
+#K: scaling factor
 K = 0.5
 
 # a0, a1, a2, b0, b1, b2, c1, c2
