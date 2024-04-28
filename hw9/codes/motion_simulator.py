@@ -92,7 +92,7 @@ F = camera.get_focal_length()
 
 # a0, a1, a2, b0, b1, b2, c1, c2
 a0 = T[0] * F + r[2] * F * Z # 0
-a1 = r[0] * Z -1
+a1 = r[0] * Z -1 + 0.001
 a2 = r[1] * Z /2
 b0 = T[1] * F + r[5] * F * Z # 0
 b1 = r[3] * Z /2
