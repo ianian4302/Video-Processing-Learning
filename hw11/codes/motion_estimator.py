@@ -1,11 +1,11 @@
 import cv2
 import numpy as np
 
-image_path = 'my_images/'
+image_path = 'homeworks/hw11/my_images/'
 # I1: the anchor frame
 # I2: the tracked frame
-I1 = cv2.imread('codes/venus/im2.ppm', cv2.IMREAD_UNCHANGED)
-I2 = cv2.imread('codes/venus/im6.ppm', cv2.IMREAD_UNCHANGED)
+I1 = cv2.imread('homeworks/hw11/codes/venus/im2.ppm', cv2.IMREAD_UNCHANGED)
+I2 = cv2.imread('homeworks/hw11/codes/venus/im6.ppm', cv2.IMREAD_UNCHANGED)
 # Convert RGB image to gray image
 I1 = cv2.cvtColor(I1, cv2.COLOR_BGR2GRAY)
 I2 = cv2.cvtColor(I2, cv2.COLOR_BGR2GRAY)
@@ -26,16 +26,20 @@ I2y = np.zeros(I2.shape, dtype=float)
 
 # I2x: the gradient image in x direction
 # I2y: the gradient image in y direction
+for y in range(1, h):
+    for x in range(1, w):
+        I2x[y, x] = I2[y, x] - I2[y, x-1] * 0.99
+        I2y[y, x] = I2[y, x] - I2[y-1, x] * 0.99
+
 # use sobel filter to compute the gradient
 # Sobel filter in x direction
-k = 0.2
-sobel_x = np.array([[-1, 0, 1], [-2, 0, 2], [-1, 0, 1]]) * k
-# Sobel filter in y direction
-sobel_y = np.array([[1, 2, 1], [0, 0, 0], [-1, -2, -1]]) * k
-for y in range(1, h-1):
-    for x in range(1, w-1):
-        I2x[y, x] = np.sum(I2[y-1:y+2, x-1:x+2] * sobel_x)
-        I2y[y, x] = np.sum(I2[y-1:y+2, x-1:x+2] * sobel_y)
+# sobel_x = np.array([[0, 0, -0], [2, 0, -2], [0, 0, -0]])
+# # Sobel filter in y direction
+# sobel_y = np.array([[1, 2, 1], [0, 0, 0], [-1, -2, -1]]) * 0
+# for y in range(1, h-1):
+#     for x in range(1, w-1):
+#         I2x[y, x] = np.sum(I2[y-1:y+2, x-1:x+2] * sobel_x) * 0.5
+#         I2y[y, x] = np.sum(I2[y-1:y+2, x-1:x+2] * sobel_y)
 
 # Compute the magnitude images for viz.
 # Gx: magnitudes of I2x: absolute value
@@ -84,7 +88,7 @@ for l in range(L+1):
             # e = I1(y, x) - I2(y + dy, x + dx)
             # gx = d/dx e = -d/dx I2(y + dy, x + dx)
             # gy = d/dy e = -d/dy I2(y + dy, x + dx)
-            gx = -I2x[y + int(dy), x + int(dx)]
+            gx = -I2x[y + int(dy), x + int(dx)] 
             gy = -I2y[y + int(dy), x + int(dx)]
             
 
