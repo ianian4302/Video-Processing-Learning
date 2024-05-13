@@ -33,7 +33,9 @@ for y in range(1, h):
 
 # use sobel filter to compute the gradient
 # Sobel filter in x direction
-# sobel_x = np.array([[0, 0, -0], [2, 0, -2], [0, 0, -0]])
+# sobel_x = np.array([[1, 0, -1], 
+#                     [2, 0, -2], 
+#                     [1, 0, -1]])
 # # Sobel filter in y direction
 # sobel_y = np.array([[1, 2, 1], [0, 0, 0], [-1, -2, -1]]) * 0
 # for y in range(1, h-1):
